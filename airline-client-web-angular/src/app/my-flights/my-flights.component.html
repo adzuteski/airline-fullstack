@@ -1,0 +1,25 @@
+
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Flight</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Price</th>
+        </tr>   
+    </thead>
+    <tbody>
+
+     <tr *ngFor="let flight of flights">
+            <td>{{flight.flightNumber}}</td>
+            <td>{{flight.origin}}</td>
+            <td>{{flight.destination}}</td>
+            <td>{{flight.price}}</td>
+            <td>
+                <button (click)="updateFlight(flight.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button (click)="deleteFlight(flight.id)" class="btn btn-danger">Delete</button>
+        </tr>  
+    
+    </tbody>
+</table>
