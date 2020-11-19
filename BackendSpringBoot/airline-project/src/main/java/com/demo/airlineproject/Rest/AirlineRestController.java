@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.airlineproject.Service.FlightService;
@@ -52,9 +53,9 @@ public class AirlineRestController {
    
    
     @PutMapping("/flights")
-    public Flight updateFlight( @RequestBody Flight theFlight) {
+    public @ResponseBody void updateFlight( @RequestBody Flight theFlight) {
        	flightService.save(theFlight);
-    	 return theFlight;
+    	 
       }
     	 
     
@@ -72,25 +73,4 @@ public class AirlineRestController {
 	
 	
 	
-	
-	
-	/*
-//Hard codded test
-	@GetMapping("/flights")
-	public List <Flight> getFlights(){
-		List <Flight> flightList = new ArrayList <Flight>();
-		flightList.add(new Flight(1,"F555", "Skopje", "Ohrid", 30.00));
-		flightList.add(new Flight(2,"F567", "Skopje", "Zagreb", 35.00));
-		flightList.add(new Flight(3,"F678", "Skopje", "Istanbul", 40.00));
-		flightList.add(new Flight(4,"F352", "Skopje", "Belgrad", 33.00));
-		flightList.add(new Flight(5,"F897", "Skopje", "Atina", 30.00));
-		return  flightList;
-	}
-	
-	@GetMapping("/flights/{flightId}")
-	public Flight getFlight(@PathVariable int flightId) {
-		
-		Flight flight = getFlights().get(flightId - 1);
-		return flight;
-	}   */
 }
